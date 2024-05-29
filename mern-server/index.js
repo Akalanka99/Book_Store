@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('API is running...')
+    res.send('HELLO WORLD!')
 })
 
 //mongodp configeration
@@ -31,6 +31,20 @@ async function run() {
 
     //create a collection of documents
     const bookcollection = client.db("bookInventory").collection("books");
+
+    //insert a book to the db:post method
+    app.post("/upload-book", async (req, res) => {
+      const data = req.body;
+      const result = await bookcollection.insertOne(data);
+      res.send(result);
+    });
+
+    //get all book from the database
+    app.get("/all-books", async (req, res) => {
+      const books = bookcollection.find();
+      const result = await books.toArray();
+      res.send(result);
+    });
 
 
     // Send a ping to confirm a successful connection
