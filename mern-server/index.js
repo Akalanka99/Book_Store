@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.port || 5000;
 const cors = require('cors')
+const { ObjectId } = require('mongodb');
 
 app.use(cors());
 app.use(express.json());
@@ -43,6 +44,32 @@ async function run() {
     app.get("/all-books", async (req, res) => {
       const books = bookcollection.find();
       const result = await books.toArray();
+      res.send(result);
+    });
+
+    //update a book data : patch or update method
+    app.patch("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      //console.log(id);
+      const updateBookData = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+
+      const updateDoc = {
+        $set: {
+          ...updateBookData
+        }
+      }
+      //update
+      const result = await bookcollection.updateOne(filter, updateDoc, options);
+      res.send(result);
+    });
+
+    //delete a book from the database
+    app.delete("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id:new ObjectId(id) };
+      const result = await bookcollection.deleteOne(filter);
       res.send(result);
     });
 
