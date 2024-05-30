@@ -73,6 +73,16 @@ async function run() {
       res.send(result);
     });
 
+    //find by category
+    app.get("/all-book", async (req, res) => {
+     let query = {};
+     if(req.query?.category){
+       query = {category:req.query.category}
+     }
+      const result = await bookcollection.find(query).toArray();
+      res.send(result);
+    });
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
