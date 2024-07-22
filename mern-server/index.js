@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('HELLO WORLD!')
+    res.send('Akalanka server is running')
 })
 
 //mongodp configeration
