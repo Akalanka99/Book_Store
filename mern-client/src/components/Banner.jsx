@@ -1,5 +1,5 @@
 import React from "react";
-import { BannerCard } from "../home/BannerCard.jsx";
+import BannerCard from "../home/BannerCard";
 
 
 
