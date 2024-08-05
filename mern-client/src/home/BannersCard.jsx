@@ -5,7 +5,7 @@ import 'swiper/css/effect-cards';
 import './BannerCard.css';
 import { EffectCards } from 'swiper/modules';
 
-const BannerCard = () => {
+const BannersCard = () => {
   return (
     <div className="banner">
       <Swiper
@@ -24,7 +24,7 @@ const BannerCard = () => {
        
       </Swiper>
     </div>
-  );
-};
+  )
+}
 
-export default BannerCard;
+export default BannersCard
