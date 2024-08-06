@@ -1,6 +1,7 @@
 import React from 'react'
 import Banners from '../components/Banners'
 import BestsellingBooks from '../home/FavoriteBook'
+import FavBook from './FavBook'
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
    <div>
     <Banners/>
     <BestsellingBooks/>
+    <FavBook/>
    </div>
   )
 }
