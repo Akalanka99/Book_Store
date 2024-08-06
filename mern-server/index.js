@@ -50,7 +50,7 @@ async function run() {
     //update a book data : patch or update method
     app.patch("/book/:id", async (req, res) => {
       const id = req.params.id;
-      //console.log(id);
+      console.log(id);
       const updateBookData = req.body;
       const filter = { _id: new ObjectId(id) };
       const options = { upsert: true };
@@ -81,7 +81,17 @@ async function run() {
      }
       const result = await bookcollection.find(query).toArray();
       res.send(result);
-    });
+    })
+
+
+    // to get a single book data
+
+    app.get("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await bookcollection.findOne(filter);
+      res.send(result);
+    })
 
 
     // Send a ping to confirm a successful connection
