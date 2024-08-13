@@ -3,6 +3,7 @@ import Banners from '../components/Banners'
 import BestsellingBooks from '../home/FavoriteBook'
 import FavBook from './FavBook'
 import PromoBanner from './PromoBanner'
+import OtherBooks from './OtherBooks'
 
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
     <Banners/>
     <BestsellingBooks/>
     <FavBook/>
-    <PromoBanner/>   
+    <PromoBanner/> 
+    <OtherBooks/>  
    </div>
   )
 }
