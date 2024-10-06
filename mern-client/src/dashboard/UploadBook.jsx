@@ -42,10 +42,27 @@ const UploadBook = () => {
       imageURL,
       bookDescription,
       bookPDFURL,
-    });
+    })
 
     // Add your form submission logic here (e.g., API call)
-  };
+    fetch("http://localhost:5000/upload-book",{
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        bookTitle,
+        authorName,
+        categoryName,
+        imageURL,
+        bookDescription,
+        bookPDFURL
+      })
+
+    }).then(res => res.json()).then(data => {
+      alert("Book uploaded successfully");
+    })
+  }
 
   const handleChangeSelectedvalue = (event) => {
     console.log(event.target.value);
