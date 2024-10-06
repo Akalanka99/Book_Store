@@ -8,7 +8,11 @@ import userImg from "../assets/profile.jpg";
 export const SideBar = () => {
   return (
     <Sidebar aria-label="Sidebar with content separator example" className="bg-gray-100">
-        <Sidebar.Logo href="#" img={userImg} imgAlt="Flowbite logo">
+        <Sidebar.Logo
+          href="#" 
+          img={userImg} 
+          imgAlt="Flowbite logo"
+        >
         <p> 
             Flowbite
         </p>
@@ -39,10 +43,10 @@ export const SideBar = () => {
         <Sidebar.Item href="#" icon={HiShoppingBag}>
           Products
         </Sidebar.Item>
-        <Sidebar.Item href="#" icon={HiArrowSmRight}>
+        <Sidebar.Item href="/login" icon={HiArrowSmRight}>
           Sign In
         </Sidebar.Item>
-        <Sidebar.Item href="#" icon={HiTable}>
+        <Sidebar.Item href="/logout" icon={HiTable}>
             Log Out
         </Sidebar.Item>
       </Sidebar.ItemGroup>
