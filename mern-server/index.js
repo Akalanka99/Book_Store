@@ -43,7 +43,7 @@ async function run() {
     //get all book from the database
     app.get("/all-books", async (req, res) => {
       const books = bookcollection.find();
-      const result = await books.toArray();
+      const result = await books.toArray();      
       res.send(result);
     });
 
