@@ -11,6 +11,17 @@ const ManageBook = () => {
       .then(data => setAllBooks(data));
   }, []);
 
+  //delete a books
+  const handleDelete = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/delete-book/${id}`, {
+      method: "DELETE",
+    }).then((res) => res.json()).then(data => {alert("Book Deleted Successfully")
+     // setAllBooks(data);
+    })
+  }
+  
+
   return (
     <div className='px-4 my-12'>
       <h2 className='text-3xl font-bold mb-8 '>Manage Your Books</h2>
