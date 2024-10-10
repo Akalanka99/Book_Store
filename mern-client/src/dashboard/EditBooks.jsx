@@ -46,14 +46,23 @@ const EditBooks = () => {
       imageURL,
       bookDescription,
       bookPDFURL,
-    })
-
-    
+    })  
   }
 
   const handleChangeSelectedvalue = (event) => {
     console.log(event.target.value);
     setSelectedBookCategory(event.target.value);
+
+    fetch(`http://localhost:5000/book/${id}`,{
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({ category: event.target.value })
+    }).then(res => res.json()).then(data => {
+      alert("Book is  updated successfully")
+      
+    })
   };
 
   return (

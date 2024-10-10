@@ -15,6 +15,7 @@ import Dashboard from "../dashboard/Dashboard";
 import UploadBook from "../dashboard/UploadBook";
 import ManageBook from "../dashboard/ManageBook";
 import EditBooks from "../dashboard/EditBooks";
+import Signup from "../components/signup";
 
 
 
@@ -70,6 +71,10 @@ import EditBooks from "../dashboard/EditBooks";
         }
 
       ]
+    },
+    {
+      path:"/signup",
+      element:<Signup/>
     }
   ]);
 
