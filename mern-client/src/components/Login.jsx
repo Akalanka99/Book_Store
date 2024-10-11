@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react'
-import { Link, useLocation, useNavigate ,Navigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate ,Navigate} from 'react-router-dom'
 import { AuthContext } from '../contects/Authprovider';
 import googleLogo from '../assets/google-logo.svg'
 import { useGetUserInfo } from '../hooks/useGetUserInfo';
 
 
-const Signup = () => {
-    const {createUser,loginwithGoogle} = useContext(AuthContext);
+
+const Login = () => {
+    const {Login,createUser,loginwithGoogle} = useContext(AuthContext);
     const [error,serError] =useState('error');
 
     const location = useLocation();
@@ -14,35 +15,47 @@ const Signup = () => {
 
     const from = location.state?.from?.pathname || "/";
 
-    const handleSignup = (event) => {
+    const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
-        createUser(email, password) .then((userCredential) => {
-            // Signed up 
+        Login(email, password).then((userCredential) => {
+            // Signed in 
             const user = userCredential.user;
-            alert('signup successfully!')
-            navigate('/login');
+        const uid = user.uid;
+        const displayName = user.displayName;
+
+
+
+        const authInfo={
+            userID:uid,
+            name:displayName,
+            isAuth:true
+          }
+        localStorage.setItem('auth', JSON.stringify(authInfo));
+        alert('login successfully!')
+        navigate('/admin/dashboard');
+            
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            serError(errorMessage)
-            // ..
           });
+        
     }
     // singin with google
-    const handleGoogle = () => {
+    const handleRegister = () => {
       loginwithGoogle().then((result) => {
         const authInfo={
-          userID:result.user.uid,
-          name:result.user.displayName,
-          isAuth:true,
-          provider:'google.com'
-        }
-        localStorage.setItem('auth',JSON.stringify(authInfo));
+            userID:result.user.uid,
+            name:result.user.displayName,
+            isAuth:true,
+            provider:'google.com'
+          }
+          localStorage.setItem('auth',JSON.stringify(authInfo));
+          
+          
         alert('login successfully!')
         navigate('/admin/dashboard');
       }).catch((error) => {
@@ -56,7 +69,7 @@ const Signup = () => {
       return <Navigate  to="/admin/dashboard" />;
     }
   return (
-<div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
 	<div className="relative py-3 sm:max-w-xl sm:mx-auto">
 		<div
 			className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
@@ -67,7 +80,7 @@ const Signup = () => {
 					<h1 className="text-2xl font-semibold">Sign up Form</h1>
 				</div>
 				<div className="divide-y divide-gray-200">
-					<form onSubmit={handleSignup} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+					<form onSubmit={handleLogin} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 						<div className="relative">
 							<input  id="email" name="email" type="text" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
 						</div>
@@ -76,7 +89,7 @@ const Signup = () => {
 							
 						</div>
                         <p>
-                           If you have an account. please <Link to="/login" className='text-blue-700 underline'>Login</Link> Here 
+                           If you haven't an account. please <Link to="/signup" className='text-blue-700 underline'>sign-up</Link> Here 
                         </p>
 						<div className="relative">
 							<button className="bg-blue-500 text-white rounded-md px-6 py-2">Sign Up</button>
@@ -86,7 +99,7 @@ const Signup = () => {
 
         <hr/>
         <div className='flex w-full items-center flex-col mt-5 gap-3'>
-          <button onClick={handleGoogle} className='block'><img src={googleLogo} alt="" className='w-12 h-12 inline-block' />Login with Google</button>
+          <button onClick={handleRegister} className='block'><img src={googleLogo} alt="" className='w-12 h-12 inline-block' />Login with Google</button>
         </div>
 			</div>
 		</div>
@@ -95,4 +108,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Login

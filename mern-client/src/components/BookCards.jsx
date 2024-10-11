@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import { FaCartShopping } from 'react-icons/fa6'
 
 const BookCards = ({headLine, books}) => {
-    console.log(books)
+   // console.log(books)
   return (
     <div className='my-16 px-4 lg:px-24'>
        <h2 className='text-5xl text-center font-bold text-black my-5 '>{headLine}</h2>

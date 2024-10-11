@@ -16,6 +16,8 @@ import UploadBook from "../dashboard/UploadBook";
 import ManageBook from "../dashboard/ManageBook";
 import EditBooks from "../dashboard/EditBooks";
 import Signup from "../components/signup";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Login from "../components/Login";
 
 
 
@@ -54,7 +56,7 @@ import Signup from "../components/signup";
       children: [
         {
           path:"/admin/dashboard",
-          element:<Dashboard/>
+          element:<PrivateRoute><Dashboard/></PrivateRoute>
         },
         {
           path:"/admin/dashboard/upload",
@@ -75,6 +77,10 @@ import Signup from "../components/signup";
     {
       path:"/signup",
       element:<Signup/>
+    },
+    {
+      path:"/login",
+      element:<Login/>
     }
   ]);
 
