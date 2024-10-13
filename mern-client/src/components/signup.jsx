@@ -24,7 +24,8 @@ const Signup = () => {
             // Signed up 
             const user = userCredential.user;
             alert('signup successfully!')
-            navigate('/login');
+            //navigate('/login');
+            navigate(from, { replace: true });
           })
           .catch((error) => {
             const errorCode = error.code;

@@ -18,6 +18,7 @@ import EditBooks from "../dashboard/EditBooks";
 import Signup from "../components/signup";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Login from "../components/Login";
+import Logout from "../components/Logout";
 
 
 
@@ -81,6 +82,10 @@ import Login from "../components/Login";
     {
       path:"/login",
       element:<Login/>
+    },
+    {
+      path:"Logout",
+      element:<Logout/>
     }
   ]);
 
