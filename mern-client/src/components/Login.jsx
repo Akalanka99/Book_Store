@@ -94,7 +94,7 @@ const Login = () => {
                            If you haven't an account. please <Link to="/signup" className='text-blue-700 underline'>Signup </Link> Here 
                         </p>
 						<div className="relative">
-							<button className="bg-blue-500 text-white rounded-md px-6 py-2">logicc</button>
+							<button className="bg-blue-500 text-white rounded-md px-6 py-2">login</button>
 						</div>
 					</form>
 				</div>
