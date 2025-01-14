@@ -9,7 +9,7 @@ const MyFooter = () => {
           <div>
             <Footer.Title title="Company" className="mb-4" />
             <Footer.LinkGroup col>
-              <Footer.Link href="#">About</Footer.Link>
+              <Footer.Link href="/about">About</Footer.Link>
               <Footer.Link href="#">Careers</Footer.Link>
               <Footer.Link href="#">Brand Center</Footer.Link>
               <Footer.Link href="#">Blog</Footer.Link>
@@ -18,9 +18,9 @@ const MyFooter = () => {
           <div>
           <Footer.Title title="help center" className="mb-4" />
           <Footer.LinkGroup col >
-              <Footer.Link href="#">Discord Server</Footer.Link>
-              <Footer.Link href="#">Twitter</Footer.Link>
-              <Footer.Link href="#">Facebook</Footer.Link>
+              <Footer.Link href="https://discord.com">Discord Server</Footer.Link>
+              <Footer.Link href="https://twitter.com">Twitter</Footer.Link>
+              <Footer.Link href="https://facebook.com">Facebook</Footer.Link>
               <Footer.Link href="#">Contact Us</Footer.Link>
             </Footer.LinkGroup>
           </div>
@@ -45,11 +45,11 @@ const MyFooter = () => {
         <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between text-gray-500">
           <Footer.Copyright href="#" by="Flowbite™" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsGithub} />
-            <Footer.Icon href="#" icon={BsDribbble} />
+            <Footer.Icon href="https://facebook.com" icon={BsFacebook} />
+            <Footer.Icon href="https://instagram.com" icon={BsInstagram} />
+            <Footer.Icon href="https://twitter.com" icon={BsTwitter} />
+            <Footer.Icon href="https://github.com" icon={BsGithub} />
+            <Footer.Icon href="https://dribbble.com" icon={BsDribbble} />
           </div>
         </div>
       </div>
