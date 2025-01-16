@@ -19,6 +19,7 @@ import Signup from "../components/signup";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Login from "../components/Login";
 import Logout from "../components/Logout";
+import Profile from "../components/Profile/profile";
 
 
 
@@ -71,6 +72,10 @@ import Logout from "../components/Logout";
           path:"/admin/dashboard/edit-book/:id",
           element:<EditBooks/>,
           loader:({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+        },
+        {
+          path:"/admin/dashboard/profile",
+          element:<Profile/>
         }
 
       ]

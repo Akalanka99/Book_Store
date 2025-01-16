@@ -27,6 +27,11 @@ export const SideBar = () => {
       </Sidebar.Logo>
     <Sidebar.Items>
       <Sidebar.ItemGroup>
+      <Sidebar.Item href="/admin/dashboard/profile" icon={HiChartPie}>
+          <p>
+          Profile
+          </p>
+        </Sidebar.Item>
         <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
           <p>
           Dashboard

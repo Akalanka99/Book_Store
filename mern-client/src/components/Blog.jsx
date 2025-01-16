@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookSellPage = () => {
+const Blog = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <header style={{ textAlign: 'center', marginBottom: '20px' }}>
@@ -33,4 +33,4 @@ const BookSellPage = () => {
   );
 }
 
-export default BookSellPage;
+export default Blog;
